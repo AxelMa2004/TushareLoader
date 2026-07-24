@@ -1,0 +1,9 @@
+﻿# Dependencies
+.env
+logs/
+__pycache__/
+*.pyc
+.venv/
+
+# Alibaba Cloud FC deployment output
+deploy/
