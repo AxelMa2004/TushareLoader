@@ -1,4 +1,4 @@
-'''
+﻿'''
 Author: Qimin Ma
 Date: 2026-04-03 21:38:25
 LastEditTime: 2026-04-11 09:49:18
@@ -111,3 +111,55 @@ class IndexMember(ProductionConstant):
         if len(dfs) == 0:
             return pd.DataFrame()
         return pd.concat(dfs).rename(columns={'index_code': 'InnerCode', 'con_code': 'StockCode'})
+
+class IndexWeight(ProductionConstant):
+    """获取各指数月度成分股权重，需 >=2000 积分。
+
+    首次运行从 2010 年全量拉取，后续仅增量。
+    """
+    def __init__(self):
+        super().__init__(dir_name="tushare", file_name="index_weight.parquet")
+        self.year_start = 2010
+
+    def _load_data(self):
+        dfs = []
+        today_int = int(datetime.datetime.now().strftime("%Y"))
+        existing_max = None
+
+        if os.path.exists(self.path):
+            existing = pd.read_parquet(self.path)
+            existing_max = str(existing["trade_date"].max())[:4]
+        start_year = self.year_start if existing_max is None else int(existing_max)
+
+        for index in tqdm(index_list, desc="Loading index weights"):
+            for year in range(start_year, today_int + 1):
+                try:
+                    df = pro.index_weight(
+                        index_code=index,
+                        start_date="%d0101" % year,
+                        end_date="%d1231" % year,
+                    )
+                    if len(df) > 0:
+                        dfs.append(df)
+                except Exception:
+                    time.sleep(0.5)
+                    continue
+                time.sleep(0.35)
+
+        if len(dfs) == 0:
+            return pd.DataFrame()
+
+        new_data = pd.concat(dfs, ignore_index=True)
+        new_data = new_data.rename(
+            columns={"index_code": "InnerCode", "con_code": "StockCode"}
+        )
+
+        if os.path.exists(self.path):
+            existing = pd.read_parquet(self.path)
+            combined = pd.concat([existing, new_data], ignore_index=True)
+            combined = combined.drop_duplicates(
+                subset=["InnerCode", "StockCode", "trade_date"], keep="last"
+            )
+            return combined.sort_values("trade_date").reset_index(drop=True)
+
+        return new_data.sort_values("trade_date").reset_index(drop=True)

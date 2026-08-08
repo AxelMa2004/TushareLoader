@@ -47,34 +47,30 @@ class CbRating(ProductionConstant):
         super().__init__(dir_name="tushare", file_name="cb_rating.parquet")
 
     def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
+        """????????????????"""
+        existing_codes = set()
+        existing_df = None
+        if os.path.exists(self.path):
+            existing_df = pd.read_parquet(self.path)
+            existing_codes = set(existing_df['InnerCode'].tolist())
+        all_codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
+        new_codes = [c for c in all_codes if c not in existing_codes]
+        if not new_codes:
+            self.logger.info('No new bonds to fetch for rating, skipping...')
+            return existing_df if existing_df is not None else pd.DataFrame()
         dfs = []
-        for i, code in enumerate(codes):
+        for i, code in enumerate(new_codes):
             df = pro.cb_rating(ts_code=code)
             if len(df) > 0:
                 dfs.append(df)
             time.sleep(0.35)
             if (i + 1) % 100 == 0:
-                self.logger.info(f"CbRating progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
+                self.logger.info(f"CbRating progress: {i+1}/{len(new_codes)}")
+        new_data = pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'}) if dfs else pd.DataFrame()
+        if existing_df is not None and not existing_df.empty:
+            return pd.concat([existing_df, new_data])
+        return new_data
 
-
-class Top10CbHolders(ProductionConstant):
-    """可转债前十大持有人（逐个转债代码+延时防限流）"""
-    def __init__(self):
-        super().__init__(dir_name="tushare", file_name="top10_cb_holders.parquet")
-
-    def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
-        dfs = []
-        for i, code in enumerate(codes):
-            df = pro.top10_cb_holders(ts_code=code)
-            if len(df) > 0:
-                dfs.append(df)
-            time.sleep(0.35)
-            if (i + 1) % 100 == 0:
-                self.logger.info(f"Top10CbHolders progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
 
 
 class CbCall(ProductionConstant):
@@ -83,70 +79,26 @@ class CbCall(ProductionConstant):
         super().__init__(dir_name="tushare", file_name="cb_call.parquet")
 
     def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
-        dfs = []
-        for i, code in enumerate(codes):
-            df = pro.cb_call(ts_code=code)
-            if len(df) > 0:
-                dfs.append(df)
-            time.sleep(0.35)
-            if (i + 1) % 100 == 0:
-                self.logger.info(f"CbCall progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
-
-
+        return load_incremental_by_date(
+            path=self.path,
+            fetch_fn=lambda start_date, end_date: pro.cb_call(start_date=start_date, end_date=end_date),
+            date_col='ann_date',
+            id_cols=['InnerCode', 'ann_date', 'call_type'],
+            logger=self.logger,
+        )
 class CbShare(ProductionConstant):
-    """可转债转股结果（逐个转债代码+延时防限流）"""
+    """可转债转股结果"""
     def __init__(self):
         super().__init__(dir_name="tushare", file_name="cb_share.parquet")
 
     def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
-        dfs = []
-        for i, code in enumerate(codes):
-            df = pro.cb_share(ts_code=code)
-            if len(df) > 0:
-                dfs.append(df)
-            time.sleep(0.35)
-            if (i + 1) % 100 == 0:
-                self.logger.info(f"CbShare progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
-
-
-
-class CbAdj(ProductionConstant):
-    def __init__(self):
-        super().__init__(dir_name="tushare", file_name="cb_adj.parquet")
-    def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
-        dfs = []
-        for i, code in enumerate(codes):
-            df = pro.cb_adj(ts_code=code)
-            if len(df) > 0:
-                dfs.append(df)
-            time.sleep(0.35)
-            if (i + 1) % 100 == 0:
-                self.logger.info(f"CbAdj progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
-
-
-class CbPreConv(ProductionConstant):
-    def __init__(self):
-        super().__init__(dir_name="tushare", file_name="cb_pre_conv.parquet")
-    def _load_data(self):
-        codes = pro.cb_basic(fields='ts_code')['ts_code'].tolist()
-        dfs = []
-        for i, code in enumerate(codes):
-            df = pro.cb_pre_conv(ts_code=code)
-            if len(df) > 0:
-                dfs.append(df)
-            time.sleep(0.35)
-            if (i + 1) % 100 == 0:
-                self.logger.info(f"CbPreConv progress: {i+1}/{len(codes)}")
-        return pd.concat(dfs).rename(columns={'ts_code': 'InnerCode'})
-
-# ================== 可转债（逐日行情） ==================
-
+        return load_incremental_by_date(
+            path=self.path,
+            fetch_fn=lambda start_date, end_date: pro.cb_share(start_date=start_date, end_date=end_date),
+            date_col='publish_date',
+            id_cols=['InnerCode', 'publish_date'],
+            logger=self.logger,
+        )
 class CbDaily(TushareLoaderTSIterative):
     """可转债日线行情（逐日拉取）"""
     def __init__(self, start: str = START, end: str = END):

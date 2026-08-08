@@ -1,88 +1,88 @@
 {
   "create_canlendar": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:02:05",
+    "update_time": "2026-08-08 10:15:13",
     "extra_info": {
       "result_type": "NoneType"
     }
   },
   "create_fundamental_canlendar": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:02:06",
+    "update_time": "2026-08-08 10:15:14",
     "extra_info": {
       "result_type": "NoneType"
     }
   },
   "create_monthly_canlendar": {
-    "date": "2026-06-15",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-15 01:08:12",
+    "update_time": "2026-08-08 10:15:14",
     "extra_info": {
       "result_type": "NoneType"
     }
   },
   "create_weekly_canlendar": {
-    "date": "2026-06-15",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-15 01:08:12",
+    "update_time": "2026-08-08 10:15:14",
     "extra_info": {
       "result_type": "NoneType"
     }
   },
   "stock_info": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:02:08",
+    "update_time": "2026-08-08 10:15:16",
     "extra_info": null
   },
   "namechange": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:04:36",
+    "update_time": "2026-08-08 10:16:19",
     "extra_info": null
   },
   "hs_const": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:04:37",
+    "update_time": "2026-08-08 10:16:20",
     "extra_info": null
   },
   "repurchase": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:04:55",
+    "update_time": "2026-08-08 10:16:31",
     "extra_info": null
   },
   "index_info": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:06:08",
+    "update_time": "2026-08-08 10:17:42",
     "extra_info": null
   },
   "index_daily": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:01",
+    "update_time": "2026-08-08 10:18:42",
     "extra_info": null
   },
   "index_classify": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:02",
+    "update_time": "2026-08-08 10:18:43",
     "extra_info": null
   },
   "index_member": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:27",
+    "update_time": "2026-08-08 10:19:04",
     "extra_info": null
   },
   "cb_basic": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:29",
+    "update_time": "2026-08-08 10:19:05",
     "extra_info": null
   },
   "bond_basic": {
@@ -92,45 +92,45 @@
     "extra_info": null
   },
   "cn_money_supply": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:26",
+    "update_time": "2026-08-08 10:21:04",
     "extra_info": null
   },
   "cn_cpi": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:26",
+    "update_time": "2026-08-08 10:21:06",
     "extra_info": null
   },
   "cn_ppi": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:27",
+    "update_time": "2026-08-08 10:21:06",
     "extra_info": null
   },
   "cn_pmi": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:27",
+    "update_time": "2026-08-08 10:21:07",
     "extra_info": null
   },
   "cn_gdp": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:28",
+    "update_time": "2026-08-08 10:21:07",
     "extra_info": null
   },
   "cn_social_financing": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:28",
+    "update_time": "2026-08-08 10:21:08",
     "extra_info": null
   },
   "cn_lpr": {
-    "date": "2026-06-17",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-17 16:03:28",
+    "update_time": "2026-08-08 10:21:08",
     "extra_info": null
   },
   "cn_reserve_ratio": {
@@ -140,27 +140,27 @@
     "extra_info": null
   },
   "cb_issue": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:41",
+    "update_time": "2026-08-08 10:19:14",
     "extra_info": null
   },
   "cb_rate": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:07:41",
+    "update_time": "2026-08-08 10:19:15",
     "extra_info": null
   },
   "cb_rating": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:24:14",
+    "update_time": "2026-08-08 10:20:09",
     "extra_info": null
   },
   "top10_cb_holders": {
-    "date": "2026-06-16",
+    "date": "2026-07-24",
     "status": "failed",
-    "update_time": "2026-06-16 22:17:49",
+    "update_time": "2026-07-24 12:14:21",
     "extra_info": null
   },
   "yc_cb": {
@@ -170,51 +170,147 @@
     "extra_info": null
   },
   "eco_cal": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:24:15",
+    "update_time": "2026-08-08 10:20:11",
     "extra_info": null
   },
   "fut_basic": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:24:22",
+    "update_time": "2026-08-08 10:20:16",
     "extra_info": null
   },
   "fut_mapping": {
-    "date": "2026-06-17",
+    "date": "2026-07-23",
     "status": "success",
-    "update_time": "2026-06-17 01:53:58",
+    "update_time": "2026-07-23 00:00:00",
     "extra_info": null
   },
   "fut_weekly_monthly": {
-    "date": "2026-06-17",
-    "status": "failed",
-    "update_time": "2026-06-17 15:40:42",
+    "date": "2026-07-23",
+    "status": "success",
+    "update_time": "2026-07-23 00:00:00",
     "extra_info": null
   },
   "stk_holdernumber": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:04:57",
+    "update_time": "2026-08-08 10:16:32",
     "extra_info": null
   },
   "stk_account": {
-    "date": "2026-07-24",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-07-24 10:05:14",
+    "update_time": "2026-08-08 10:16:58",
     "extra_info": null
   },
   "sge_basic": {
-    "date": "2026-06-28",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-28 10:52:03",
+    "update_time": "2026-08-08 10:20:56",
     "extra_info": null
   },
   "nh_index_daily": {
-    "date": "2026-06-28",
+    "date": "2026-08-08",
     "status": "success",
-    "update_time": "2026-06-28 10:52:04",
+    "update_time": "2026-08-08 10:20:59",
+    "extra_info": null
+  },
+  "cb_call": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:20:09",
+    "extra_info": null
+  },
+  "cb_share": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:20:10",
+    "extra_info": null
+  },
+  "cb_adj": {
+    "date": "2026-07-24",
+    "status": "failed",
+    "update_time": "2026-07-24 18:25:56",
+    "extra_info": null
+  },
+  "cn_schedule": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:10",
+    "extra_info": null
+  },
+  "hibor": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:11",
+    "extra_info": null
+  },
+  "libor": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:12",
+    "extra_info": null
+  },
+  "shibor": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:13",
+    "extra_info": null
+  },
+  "shibor_quote": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:14",
+    "extra_info": null
+  },
+  "gz_index": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:15",
+    "extra_info": null
+  },
+  "wz_index": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:17",
+    "extra_info": null
+  },
+  "us_trycr": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:18",
+    "extra_info": null
+  },
+  "us_tycr": {
+    "date": "2026-08-08",
+    "status": "success",
+    "update_time": "2026-08-08 10:21:18",
+    "extra_info": null
+  },
+  "fut_daily": {
+    "date": "2026-07-23",
+    "status": "success",
+    "update_time": "2026-07-23 00:00:00",
+    "extra_info": null
+  },
+  "fut_holding": {
+    "date": "2026-07-23",
+    "status": "success",
+    "update_time": "2026-07-23 00:00:00",
+    "extra_info": null
+  },
+  "fut_wsr": {
+    "date": "2026-07-23",
+    "status": "success",
+    "update_time": "2026-07-23 00:00:00",
+    "extra_info": null
+  },
+  "fut_settle": {
+    "date": "2026-07-23",
+    "status": "success",
+    "update_time": "2026-07-23 00:00:00",
     "extra_info": null
   }
 }
